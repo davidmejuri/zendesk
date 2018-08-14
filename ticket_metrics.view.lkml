@@ -1,5 +1,5 @@
 view: ticket_metrics {
-  sql_table_name: looker_zendesk.zendesk_ticket_metrics ;;
+  sql_table_name: zendesk.zendesk_ticket_metrics ;;
   #   definition resource: https://developer.zendesk.com/rest_api/docs/core/ticket_metrics
 
   dimension: id {
@@ -139,11 +139,13 @@ view: ticket_metrics {
   dimension: first_resolution_time_in_days__business {
     type: number
     sql: ${TABLE}.first_resolution_time_in_minutes__business / 480 ;;
+    value_format_name: decimal_2
   }
 
   measure: avg_first_resolution_time_in_days__business {
     type: average
     sql: ${first_resolution_time_in_days__business} ;;
+    value_format_name: decimal_2
   }
 
   #   - dimension: first_resolution_time_in_days__calendar
@@ -234,6 +236,7 @@ view: ticket_metrics {
   measure: avg_reply_time_in_hours__business {
     type: average
     sql: ${reply_time_in_hours__business} ;;
+    value_format_name: decimal_2
   }
 
   #   - dimension: reply_time_in_hours__calendar

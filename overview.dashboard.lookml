@@ -8,10 +8,8 @@
       height: 400
     - elements: [tickets_by_channel, count_by_status]
       height: 400
-    - elements: [top_orgs, top_requesters, top_assignees]
+    - elements: [top_requesters, top_assignees]
       height: 400
-#     - elements: [ticket_tags]
-#       height: 500
 
   filters:
 
@@ -142,23 +140,6 @@
     y_axis_scale_mode: linear
     show_null_labels: false
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
-    listen:
-      date: tickets.created_at_date
-
-  - name: top_orgs
-    title: Top 20 organizations by tickets submitted
-    type: table
-    model: zendesk
-    explore: ticket_metrics
-    dimensions: [tickets.organization_name]
-    measures: [tickets.count]
-    sorts: [tickets.count desc]
-    limit: 20
-    show_view_names: true
-    show_row_numbers: true
-    truncate_column_names: false
-    table_theme: editable
-    limit_displayed_rows: false
     listen:
       date: tickets.created_at_date
 
