@@ -1,4 +1,4 @@
-connection: "stitch_vandelay"
+connection: "spree_db"
 
 # include all the views
 include: "*.view"
