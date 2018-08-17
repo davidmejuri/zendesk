@@ -169,4 +169,9 @@ explore: ticket_metrics {
     sql_on: ${tickets.assignee_id} = ${assignees.id} ;;
     relationship: many_to_one
   }
+  join: ticket__tags {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${ticket__tags.ticket_id} = ${ticket_metrics.ticket_id};;
+  }
 }
