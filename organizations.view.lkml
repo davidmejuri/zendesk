@@ -1,5 +1,5 @@
 view: organizations {
-  sql_table_name: zendesk.organizations ;;
+  sql_table_name: zendesk_ch.organizations ;;
 
   dimension: id {
     primary_key: yes

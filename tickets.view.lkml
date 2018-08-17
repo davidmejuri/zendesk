@@ -1,5 +1,5 @@
 view: tickets {
-  sql_table_name: zendesk.tickets ;;
+  sql_table_name: zendesk_ch.tickets ;;
 
   dimension: id {
     primary_key: yes

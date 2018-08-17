@@ -1,5 +1,5 @@
 view: ticket__tags {
-  sql_table_name: zendesk.tickets__tags ;;
+  sql_table_name: zendesk_ch.tickets__tags ;;
 
   dimension: ticket_id {
     type: number
