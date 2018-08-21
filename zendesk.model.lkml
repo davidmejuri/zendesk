@@ -5,7 +5,7 @@ include: "*.view"
 
 explore: audits {
   label: "Ticket Changes"
-
+  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
   join: tickets {
     type: left_outer
     sql_on: ${audits.ticket_id} = ${tickets.id} ;;
@@ -19,7 +19,6 @@ explore: audits {
   }
 
   join: requesters {
-    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
     from: users
     type: left_outer
     sql_on: ${tickets.requester_id} = ${requesters.id} ;;
@@ -91,8 +90,8 @@ explore: tickets {
 }
 
 explore: ticket__tags {
+  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
   join: tickets {
-    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
     type: left_outer
     sql_on: ${ticket__tags.ticket_id} = ${tickets.id} ;;
     relationship: many_to_one
@@ -132,6 +131,7 @@ explore: groups {}
 explore: tag_types {}
 
 explore: ticket_metrics {
+  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca')   ;;
   join: tickets {
     type: left_outer
     sql_on: ${ticket_metrics.ticket_id} = ${tickets.id} ;;
@@ -157,7 +157,6 @@ explore: ticket_metrics {
   }
 
   join: requesters {
-    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca')   ;;
     from: users
     type: left_outer
     sql_on: ${tickets.requester_id} = ${requesters.id} ;;
