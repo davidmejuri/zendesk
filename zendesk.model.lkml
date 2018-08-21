@@ -19,6 +19,7 @@ explore: audits {
   }
 
   join: requesters {
+    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
     from: users
     type: left_outer
     sql_on: ${tickets.requester_id} = ${requesters.id} ;;
@@ -55,6 +56,7 @@ explore: ticket_fields {
 }
 
 explore: tickets {
+  sql_always_where: ${requester_email} NOT IN ('vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca') ;;
   join: organizations {
     type: left_outer
     sql_on: ${tickets.organization_id} = ${organizations.id} ;;
@@ -90,6 +92,7 @@ explore: tickets {
 
 explore: ticket__tags {
   join: tickets {
+    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') ;;
     type: left_outer
     sql_on: ${ticket__tags.ticket_id} = ${tickets.id} ;;
     relationship: many_to_one
@@ -154,6 +157,7 @@ explore: ticket_metrics {
   }
 
   join: requesters {
+    sql_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca')   ;;
     from: users
     type: left_outer
     sql_on: ${tickets.requester_id} = ${requesters.id} ;;
