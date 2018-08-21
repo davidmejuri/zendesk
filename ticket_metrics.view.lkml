@@ -105,6 +105,7 @@ view: ticket_metrics {
   measure: avg_first_resolution_time_in_hours__business {
     type: average
     sql: ${first_resolution_time_in_hours__business} ;;
+    value_format_name: decimal_2
   }
 
   #   - dimension: first_resolution_time_in_hours__calendar
