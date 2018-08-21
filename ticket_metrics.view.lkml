@@ -123,6 +123,7 @@ view: ticket_metrics {
   measure: avg_full_resolution_time_in_hours__business {
     type: average
     sql: ${full_resolution_time_in_hours__business} ;;
+    value_format_name: decimal_2
   }
 
   #   - dimension: full_resolution_time_in_hours__calendar
