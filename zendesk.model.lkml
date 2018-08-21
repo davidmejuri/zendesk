@@ -5,7 +5,7 @@ include: "*.view"
 
 explore: audits {
   label: "Ticket Changes"
-  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') OR requesters.email IS null;;
+  sql_always_where: ${requesters.email} NOT IN ('team@calendly.com','auto-communication@amazon.com','account-update@amazon.ca','partner@mejuri.com','vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca','tech@mejuri.com') OR requesters.email IS null;;
   join: tickets {
     type: left_outer
     sql_on: ${audits.ticket_id} = ${tickets.id} ;;
@@ -55,7 +55,7 @@ explore: ticket_fields {
 }
 
 explore: tickets {
-  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') OR requesters.email IS null ;;
+  sql_always_where: ${requesters.email} NOT IN ('team@calendly.com','auto-communication@amazon.com','account-update@amazon.ca','partner@mejuri.com','tech@mejuri.com','vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') OR requesters.email IS null ;;
   join: organizations {
     type: left_outer
     sql_on: ${tickets.organization_id} = ${organizations.id} ;;
@@ -90,7 +90,7 @@ explore: tickets {
 }
 
 explore: ticket__tags {
-  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') OR requesters.email IS null ;;
+  sql_always_where: ${requesters.email} NOT IN ('team@calendly.com','auto-communication@amazon.com','account-update@amazon.ca','partner@mejuri.com','tech@mejuri.com','vfe-campaign-response@amazon.com', 'order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca','payments-messages@amazon.ca') OR requesters.email IS null ;;
   join: tickets {
     type: left_outer
     sql_on: ${ticket__tags.ticket_id} = ${tickets.id} ;;
@@ -131,7 +131,7 @@ explore: groups {}
 explore: tag_types {}
 
 explore: ticket_metrics {
-  sql_always_where: ${requesters.email} NOT IN ('vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca') OR ${requesters.email} IS NULL;;
+  sql_always_where: ${requesters.email} NOT IN ('team@calendly.com','auto-communication@amazon.com','account-update@amazon.ca','partner@mejuri.com','tech@mejuri.com','vfe-campaign-response@amazon.com','order-update@amazon.ca','noreply.odd@dhl.com','no-reply@amazon.ca','no-reply@amazon.com','nobody@bounces.amazon.com','payments-messages@amazon.ca','5qlgtdx4557tnyn@marketplace.amazon.ca','1lm86lykg3b0190@marketplace.amazon.com','auto-communication@amazon.ca') OR ${requesters.email} IS NULL;;
   join: tickets {
     type: left_outer
     sql_on: ${ticket_metrics.ticket_id} = ${tickets.id} ;;
