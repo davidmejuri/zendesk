@@ -83,7 +83,7 @@ explore: tickets {
   }
 
   join: ticket__tags {
-    type: left_outer
+    type: inner
     sql_on: ${ticket__tags.ticket_id} = ${tickets.id};;
     relationship: one_to_many
   }
