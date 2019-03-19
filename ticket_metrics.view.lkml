@@ -217,6 +217,7 @@ view: ticket_metrics {
   measure: avg_reply_time_in_minutes__business {
     type: average
     sql: ${reply_time_in_minutes__business} ;;
+    value_format_name: decimal_2
   }
 
   #   - dimension: reply_time_in_minutes__calendar
