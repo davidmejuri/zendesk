@@ -21,4 +21,11 @@ view: ticket__tags {
     type: count
     drill_fields: []
   }
+  measure: sonar_count {
+    type: count
+    filters: {
+      field: value
+      value: "sonar"
+    }
+  }
 }
