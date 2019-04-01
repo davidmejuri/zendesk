@@ -119,12 +119,12 @@ view: ticket_metrics {
 
   dimension: full_resolution_time_in_hours__business {
     type: number
-    sql: (${TABLE}.full_resolution_time_in_minutes__business / (60 * 1.0)) ;;
+    sql: ((${TABLE}.full_resolution_time_in_minutes__business) / (60 * 1.0)) ;;
   }
 
   measure: avg_full_resolution_time_in_hours__business {
     type: average
-    sql: ${full_resolution_time_in_hours__business} * 1.0 ;;
+    sql: ${full_resolution_time_in_hours__business} ;;
     value_format_name: decimal_2
   }
 
