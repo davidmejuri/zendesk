@@ -124,7 +124,7 @@ view: ticket_metrics {
 
   measure: avg_full_resolution_time_in_hours__business {
     type: average
-    sql: ${full_resolution_time_in_hours__business} ;;
+    sql: ${full_resolution_time_in_hours__business} * 1.0 ;;
     value_format_name: decimal_2
   }
 
