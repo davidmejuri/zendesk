@@ -212,13 +212,12 @@ view: ticket_metrics {
 
   dimension: reply_time_in_minutes__business {
     type: number
-    sql: ${TABLE}.reply_time_in_minutes__business * 1.0;;
+    sql: ${TABLE}.reply_time_in_minutes__business ;;
   }
 
   measure: avg_reply_time_in_minutes__business {
     type: average
     sql: ${reply_time_in_minutes__business} ;;
-    value_format_name: decimal_2
   }
 
   #   - dimension: reply_time_in_minutes__calendar
