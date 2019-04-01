@@ -99,7 +99,7 @@ view: ticket_metrics {
 
   dimension: first_resolution_time_in_hours__business {
     type: number
-    sql: (${TABLE}.first_resolution_time_in_minutes__business / (60 * 1.0)) ;;
+    sql: ${TABLE}.first_resolution_time_in_minutes__business / 60 ;;
   }
 
 
@@ -119,7 +119,7 @@ view: ticket_metrics {
 
   dimension: full_resolution_time_in_hours__business {
     type: number
-    sql: ((${TABLE}.full_resolution_time_in_minutes__business) / (60 * 1.0)) ;;
+    sql: ${TABLE}.full_resolution_time_in_minutes__business / 60 ;;
   }
 
   measure: avg_full_resolution_time_in_hours__business {
@@ -233,7 +233,7 @@ view: ticket_metrics {
 
   dimension: reply_time_in_hours__business {
     type: number
-    sql: ${TABLE}.reply_time_in_minutes__business / (60 * 1.0) ;;
+    sql: ${TABLE}.reply_time_in_minutes__business / 60 ;;
   }
 
   measure: avg_reply_time_in_hours__business {
