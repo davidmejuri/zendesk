@@ -233,7 +233,7 @@ view: ticket_metrics {
 
   dimension: reply_time_in_hours__business {
     type: number
-    sql: ${TABLE}.reply_time_in_minutes__business / 60 ;;
+    sql: ${TABLE}.reply_time_in_minutes__business / 60.0 ;;
   }
 
   measure: avg_reply_time_in_hours__business {
