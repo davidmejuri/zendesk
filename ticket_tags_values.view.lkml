@@ -11,6 +11,16 @@ view: ticket__tags {
     sql: ${TABLE}.value ;;
   }
 
+  dimension: ada_tier1 {
+    type: string
+    sql: CASE
+    WHEN ${TABLE}.value = 'ada'
+    AND ${TABLE}.value = 'tier1'
+    THEN '1'
+    ELSE '0'
+    END ;;
+  }
+
   dimension_group: created_at {
     type: time
     timeframes: [time, date, week, month]

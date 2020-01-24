@@ -81,6 +81,16 @@ view: ticket_metrics {
     sql: ${TABLE}.full_resolution_time_in_minutes__business ;;
   }
 
+  measure: sum_full_resolution_test {
+    type: sum
+    sql: ${full_resolution_time_in_minutes__business} ;;
+  }
+
+  measure: count_full_resolution_test {
+    type: count_distinct
+    sql: ${full_resolution_time_in_minutes__business} ;;
+  }
+
   measure: avg_full_resolution_time_in_minutes__business {
     type: average
     sql: ${full_resolution_time_in_minutes__business} ;;
